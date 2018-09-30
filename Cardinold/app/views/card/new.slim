@@ -1,0 +1,68 @@
+doctype html
+html[lang="en"]
+  head
+    meta[http-equiv="Content-Type" content="text/html; charset=UTF-8"]
+    meta[name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"]
+    title
+      | Card Creator - New
+    link[href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"]
+    link[href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"]
+    = stylesheet_link_tag 'style.css'
+  body
+    div[class="row"]
+      div[class="col s12 m8"]
+        div[class="card large blue-grey darken-1"]
+          div[class="card-content white-text text-darken-2"]
+
+            span[class="card-title"] Create new card
+            p Put some new links
+            br
+
+            = form_tag '/card', method: 'post', class: 'col s12'
+              div class="row"
+                div class="col s8"
+                  div class="row"
+                    div class="input-field col s8"
+                      input[placeholder="Paste link here" id="url1" name="url1" type="text" class="validate"  ic-target="#preview" ic-trigger-on="keyup changed" ic-post-to="/card/preview" ic-include="#url1"]
+                      label[for="url1"] Link 1
+                  div class="row"
+                    div class="input-field col s8"
+                      input[placeholder="Paste link here" id="url2" name="url2" type="text" class="validate" ic-trigger-on="changed"]
+                      label[for="url2"] Link 2
+                  div class="row"
+                    div class="input-field col s8"
+                      input[placeholder="Paste link here" id="url3" name="url3" type="text" class="validate" ic-trigger-on="changed"]
+                      label[for="url3"] Link 3
+
+                div class="input-field col s4"
+                  input[id="card_title" placeholder="Edit title" name="title" type="text" class="validate"]
+                  label[class="active" for="card_title"] Title
+
+                div class="input-field col s4"
+                  select
+                    option[value="" disabled selected]Choose option
+                    option value="mono"
+                      | Mono
+                    option value="duro"
+                      | Duro
+                    option value="trio"
+                      | Trio
+                  label Theme
+
+                div[id="preview"]
+
+                button[class="btn-small waves-effect waves-light" type="submit" name="action"]
+                  | Preview Card
+                  i[class="material-icons right"]
+                    | send
+
+          div[class="card-action"]
+            a[href="#"]
+              | Card Action
+            a[href="#"]
+              | Card Action
+
+
+    script[src="https://code.jquery.com/jquery-2.1.1.min.js"]
+    script[src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"]
+    = javascript_include_tag 'init.js'

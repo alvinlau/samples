@@ -1,0 +1,31 @@
+doctype html
+html[lang="en"]
+  head
+    meta[http-equiv="Content-Type" content="text/html; charset=UTF-8"]
+    meta[name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"]
+    title
+      | Card Creator - View
+    link[href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"]
+    link[href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"]
+    = stylesheet_link_tag 'style.css'
+  body
+    div[class="row"]
+      div[class="col s12 m6"]
+        div[class="card medium blue-grey darken-1"]
+          div[class="card-content white-text text-darken-2"]
+            span[class="card-title"]
+              | Card Title
+            p
+              | Card summary text
+            div[id='preview']
+              img[class="responsive-img" src="https://vignette.wikia.nocookie.net/angrybirdsfanon/images/8/8d/150px-Angry_Birds_Icon-496x496.png"]
+
+          div[class="card-action"]
+            = link_to 'Create new card', '/card/new'
+            / = link_to 'Create new card', '/card/new', unless: :current
+          div[class="card-action" ic-get-from="card/preview" ic-target="#preview"]
+            = link_to 'Test Preview'
+    script[src="https://code.jquery.com/jquery-3.1.1.min.js"]
+    script[src="https://intercoolerreleases-leaddynocom.netdna-ssl.com/intercooler-1.2.1.min.js"]
+    script[src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"]
+    = javascript_include_tag 'init.js'
