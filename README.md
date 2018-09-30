@@ -13,6 +13,7 @@ I had these projects I was working on previously in-between jobs
 They pretty stayed work-in-progress, but still good for me to play with Ruby API + Slim templates
 
 meshie is topic board where the content are links about the topic, I just wrote the backend API before I left it off
+
 cardinold lets you create links that contain multiple links, sort of like a multi-link-bin compared to pastebin for text
 
 
