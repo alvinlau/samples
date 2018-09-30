@@ -3,22 +3,42 @@ html[lang="en"]
   head
     meta[http-equiv="Content-Type" content="text/html; charset=UTF-8"]
     meta[name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"]
-    title
-      | Card Creator - View
+    title = @title
     link[href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"]
     link[href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"]
     = stylesheet_link_tag 'style.css'
   body
     div[class="row"]
       div[class="col s12 m6"]
-        div[class="card medium blue-grey darken-1"]
+        div[class="card-panel large blue-grey darken-1"]
           div[class="card-content white-text text-darken-2"]
             span[class="card-title"]
-              | Card Title
-            p
-              | Card summary text
-            div[id='preview']
-              img[class="responsive-img" src="https://vignette.wikia.nocookie.net/angrybirdsfanon/images/8/8d/150px-Angry_Birds_Icon-496x496.png"]
+              h4 = @title
+            p Card summary text
+
+            div[id='preview-pane']
+              img[class="responsive-img" src="https://www.google.ca/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"]
+
+            ul class="collection with-header"
+              li class="collection-header blue-text"
+                | Links (#{@previews.size})
+                - for preview in @previews
+                    img class="secondary-content" src="https://www.google.com/s2/favicons?domain=#{preview[:url]}"
+              - for preview in @previews
+                div class="collection-item avatar blue-text"
+                  a class="btn waves-effect waves-light" ic-get-from="/preview/#{preview[:content_id]}" ic-target="#preview-pane"
+                    img src="https://www.google.com/s2/favicons?domain=#{preview[:url]}"
+                    span = ' '
+                    span class="title" #{preview[:title]}
+                  br
+                  | #{preview[:url]}
+                  a class="secondary-content"
+                    / indicators not in data yet
+                    - for indicator in preview[:indicators]
+                      i class="small material-icons" indicator[:icon]
+                      i class="small material-icons" add_circle
+                      i class="small material-icons" account_circle
+                      i class="small material-icons" camera_alt
 
           div[class="card-action"]
             = link_to 'Create new card', '/card/new'

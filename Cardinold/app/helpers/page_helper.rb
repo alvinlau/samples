@@ -1,4 +1,4 @@
-# Helper methods defined here can be accessed in any controller or view in the application
+require 'addressable/uri'
 
 module Cardinold
   class URLHelper
@@ -9,7 +9,10 @@ module Cardinold
 
 
     def fetch url
-
+      url = Addressable::URI.parse url
+      if url.host.include? 'google'
+        # id= hplogo
+      end
     end
 
   end

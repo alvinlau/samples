@@ -3,7 +3,7 @@ html[lang="en"]
   head
     meta[http-equiv="Content-Type" content="text/html; charset=UTF-8"]
     meta[name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"]
-    title = params["title"]
+    title = @title
     link[href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"]
     link[href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"]
     = stylesheet_link_tag 'style.css'
@@ -12,7 +12,7 @@ html[lang="en"]
       div[class="col s12 m6"]
         div[class="card large blue-grey darken-1"]
           div[class="card-content white-text text-darken-2"]
-            span[class="card-title"] = params["title"]
+            span[class="card-title"] = @title
             p
               | You are looking at a card display
 
